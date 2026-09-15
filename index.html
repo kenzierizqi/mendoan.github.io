@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mendoan - Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo-container">
+            <div class="logo-icon"></div>
+            <div class="logo-text">MENDOAN</div>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">HOME</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="recipe.html">INGREDIENTS</a></li>
+                <li><a href="cooking.html">HOW TO COOK</a></li>
+                <li><a href="funfact.html">FUN FACTS</a></li>
+            </ul>
+        </nav>
+        <div class="header-right">
+            <div class="header-tagline">
+                <span data-lang="id" class="lang-show">Hidangan Sederhana,<br>Warisan yang Kaya</span>
+                <span data-lang="en">A Simple Dish,<br>A Rich Heritage</span>
+            </div>
+            <div class="lang-toggle">
+                <button type="button" class="lang-btn active" data-lang-btn="id">ID</button>
+                <button type="button" class="lang-btn" data-lang-btn="en">EN</button>
+            </div>
+        </div>
+    </header>
+
+    <section id="home">
+
+        <div class="hero-image">
+            <img src="produk.jpeg" alt="Mendoan">
+            <div class="hero-overlay"></div>
+        </div>
+
+        <div class="hero-text">
+            <div class="hero-subtitle">
+                <span data-lang="id" class="lang-show">MAKANAN TRADISIONAL INDONESIA</span>
+                <span data-lang="en">TRADITIONAL INDONESIAN FOOD</span>
+            </div>
+
+            <h1 class="hero-title">Mendoan</h1>
+            <div class="divider"></div>
+
+            <p class="hero-desc">
+                <span data-lang="id" class="lang-show">
+                    Renyah di luar,<br>
+                    lembut di dalam — cita rasa<br>
+                    abadi dari tanah Jawa.
+                </span>
+                <span data-lang="en">
+                    Crispy on the outside,<br>
+                    soft on the inside — a timeless<br>
+                    flavor from Java.
+                </span>
+            </p>
+
+            <a href="about.html" class="btn">
+                <span data-lang="id" class="lang-show">JELAJAHI &rarr;</span>
+                <span data-lang="en">EXPLORE MORE &rarr;</span>
+            </a>
+        </div>
+
+        <div class="pagination"><span>01</span> &mdash; 07</div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
