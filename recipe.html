@@ -29,8 +29,8 @@
                 <span data-lang="en">A Simple Dish,<br>A Rich Heritage</span>
             </div>
             <div class="lang-toggle">
-                <button type="button" class="lang-btn active" data-lang-btn="id">ID</button>
-                <button type="button" class="lang-btn" data-lang-btn="en">EN</button>
+                <button type="button" class="lang-btn active" data-lang-btn="id" onclick="setLanguage('id')">ID</button>
+                <button type="button" class="lang-btn" data-lang-btn="en" onclick="setLanguage('en')">EN</button>
             </div>
         </div>
     </header>
@@ -44,6 +44,16 @@
             <span data-lang="id" class="lang-show">Resep Tempe Mendoan Asli Banyumas (Bilingual)</span>
             <span data-lang="en">Authentic Banyumas Tempeh Mendoan Recipe</span>
         </p>
+
+        <!-- BINGKAI GAMBAR YANG BERUBAH SESUAI BAHASA -->
+        <div class="recipe-image-frame">
+            <img src="resep-id.jpg" alt="Resep Mendoan (ID)" data-lang="id" class="lang-show">
+            <img src="resep-en.jpg" alt="Mendoan Recipe (EN)" data-lang="en">
+            <div class="frame-corner top-left"></div>
+            <div class="frame-corner top-right"></div>
+            <div class="frame-corner bottom-left"></div>
+            <div class="frame-corner bottom-right"></div>
+        </div>
 
         <div class="card" style="margin-bottom: 30px;">
             <h3>
@@ -128,6 +138,38 @@
     <footer>
         <p>&copy; 2023 Mendoan Heritage. | A Simple Dish, A Rich Heritage.</p>
     </footer>
-    <script src="script.js"></script>
+
+    <script>
+    function setLanguage(lang) {
+        try { localStorage.setItem('mendoanLang', lang); } catch(e) {}
+        document.querySelectorAll('[data-lang]').forEach(function(el) {
+            if (el.getAttribute('data-lang') === lang) {
+                var tag = el.tagName;
+                if (tag === 'SPAN' || tag === 'A' || tag === 'STRONG' || tag === 'EM' || tag === 'B' || tag === 'I') {
+                    el.style.display = 'inline';
+                } else if (tag === 'LI') {
+                    el.style.display = 'list-item';
+                } else {
+                    el.style.display = 'block';
+                }
+            } else {
+                el.style.display = 'none';
+            }
+        });
+        document.querySelectorAll('.lang-btn').forEach(function(btn) {
+            if (btn.getAttribute('data-lang-btn') === lang) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+        document.documentElement.setAttribute('lang', lang);
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+        var saved = 'id';
+        try { saved = localStorage.getItem('mendoanLang') || 'id'; } catch(e) {}
+        setLanguage(saved);
+    });
+    </script>
 </body>
 </html>
