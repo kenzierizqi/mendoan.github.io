@@ -132,19 +132,18 @@ nav a.active {
 }
 
 /* ===== LANGUAGE VISIBILITY ===== */
-/* Default: semua bahasa disembunyikan */
 [data-lang] { display: none; }
-/* Khusus span & link yang ingin muncul sebagai inline */
 span[data-lang].lang-show { display: inline; }
-/* Konten utama (block) yang muncul */
 div[data-lang].lang-show,
 p[data-lang].lang-show,
 ul[data-lang].lang-show,
 ol[data-lang].lang-show,
 h2[data-lang].lang-show,
 h3[data-lang].lang-show { display: block; }
-/* LI di dalam list */
 li[data-lang].lang-show { display: list-item; }
+
+/* Khusus gambar yang ingin berubah sesuai bahasa */
+img[data-lang].lang-show { display: block; }
 
 /* ===== HOME PAGE ===== */
 #home {
@@ -161,7 +160,7 @@ li[data-lang].lang-show { display: list-item; }
     position: absolute;
     top: 0;
     right: 0;
-    width: 80%;
+    width: 50%;
     height: 100%;
     z-index: 1;
 }
@@ -350,6 +349,7 @@ li[data-lang].lang-show { display: list-item; }
     font-family: var(--font-heading);
 }
 
+/* ===== VIDEO ===== */
 .video-container {
     position: relative;
     padding-bottom: 56.25%;
@@ -366,6 +366,65 @@ li[data-lang].lang-show { display: list-item; }
     border: none;
 }
 
+/* ===== BINGKAI GAMBAR RESEP ===== */
+.recipe-image-frame {
+    position: relative;
+    width: 100%;
+    max-width: 750px;
+    margin: 0 auto 50px;
+    padding: 15px;
+    background-color: var(--bg-card);
+    border: 2px solid var(--accent-gold);
+    border-radius: 8px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    overflow: hidden;
+}
+
+/* Garis tipis di dalam bingkai (efek double frame) */
+.recipe-image-frame::before {
+    content: '';
+    position: absolute;
+    top: 8px; left: 8px; right: 8px; bottom: 8px;
+    border: 1px solid rgba(209, 178, 122, 0.4);
+    border-radius: 4px;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.recipe-image-frame img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+/* Ornamen sudut */
+.frame-corner {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--accent-gold);
+    z-index: 3;
+}
+.frame-corner.top-left {
+    top: 12px; left: 12px;
+    border-right: none; border-bottom: none;
+}
+.frame-corner.top-right {
+    top: 12px; right: 12px;
+    border-left: none; border-bottom: none;
+}
+.frame-corner.bottom-left {
+    bottom: 12px; left: 12px;
+    border-right: none; border-top: none;
+}
+.frame-corner.bottom-right {
+    bottom: 12px; right: 12px;
+    border-left: none; border-top: none;
+}
+
+/* ===== FUN FACTS ===== */
 .funfact-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -447,4 +506,13 @@ footer {
     .reviews-container { flex-direction: column; }
     .inner-page { padding: 180px 20px 60px; }
     .section-title { font-size: 2.2rem; }
+
+    .recipe-image-frame {
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    .frame-corner {
+        width: 14px;
+        height: 14px;
+    }
 }
